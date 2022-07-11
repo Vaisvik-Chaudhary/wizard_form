@@ -1,0 +1,45 @@
+ <div class="container">
+ <h1>User's Favorite Choices</h1>
+ <hr>
+
+<%= form_with model: @user, url: wizard_path do |f| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div>
+      <h5><%= f.label :favorite_food %></h5>
+      <%= f.text_field :favorite_food %>
+    </div>
+    <br>
+    <div>
+      <h5><%= f.label :favorite_place %></h5>
+      <%= f.text_field :favorite_place %>
+    </div>
+    <br>
+    <div>
+      <h5><%= f.label :favorite_car %></h5>
+      <%= f.text_field :favorite_car %>
+    </div>
+    <br>
+    <div>
+     
+      <%= f.submit 'Next Step',class:"btn btn-primary" %>
+     
+    </div>
+    <br>
+    <div>
+     <%= link_to 'Previous Step', previous_wizard_path, class:"btn btn-secondary " %>
+     <%= link_to 'Skip', next_wizard_path, class:"btn btn-secondary" %>
+    </div>
+<% end %>
+
+</div>

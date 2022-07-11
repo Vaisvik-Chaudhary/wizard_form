@@ -1,0 +1,54 @@
+ <nav class="navbar bg-primary">
+  <div class="container-fluid">
+      <div class="navbar-brand d-flex align-items-center" href="#" >
+     
+   <div class="head" style="font-size: 30px;color:white;" >Dashboard</div> 
+    </div>
+    <form class="d-flex" >
+<%= link_to "New user", new_user_path, class:"btn btn-success"%>   
+    </form>
+  </div>
+</nav>
+
+<p style="color: green"><%= notice %></p>
+
+ <div class="container">
+<h1>Users</h1>
+
+<div id="users">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Favorite Food</th>
+        <th scope="col">Favorite Place</th>
+        <th scope="col">Favorite Car</th>
+        <th scope="col">Pet Count</th>
+        <th scope="col">Pet Name</th>
+        <th scope="col">Show</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name%></td>
+          <td><%= user.middle_name%></td>
+          <td><%= user.last_name%></td>
+          <td><%= user.favorite_food%></td>    
+          <td><%= user.favorite_place%></td> 
+          <td><%= user.favorite_car%></td>   
+          <td><%= user.pet_count%></td> 
+          <td><%= user.pet_name%></td>     
+          <td><%= link_to "Show", user,class:"btn btn-secondary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
+

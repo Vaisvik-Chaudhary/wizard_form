@@ -1,0 +1,37 @@
+<div class="container">
+ <h1>User's Pet Info</h1>
+ <hr>
+<%= form_with model: @user, url: wizard_path do |f| %>
+   <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div>
+      <h5><%= f.label :pet_count %></h5>
+      <%= f.text_field :pet_count %>
+    </div>
+    <br>
+    <div>
+      <h5><%= f.label :pet_name %></h5>
+      <%= f.text_field :pet_name %>
+    </div>
+
+    <br/>
+
+    <div>
+        <%= f.submit 'Complete', class:"btn btn-success" %>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Previous Step', previous_wizard_path, class:"btn btn-secondary" %>
+    </div>
+
+<% end %>

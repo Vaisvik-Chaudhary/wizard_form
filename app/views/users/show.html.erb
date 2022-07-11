@@ -1,0 +1,16 @@
+<div class="container">
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit", edit_user_path(@user),class:"btn btn-secondary" %> 
+  <%= link_to "Back", users_path, class:"btn btn-secondary"%>
+</div>
+<br>
+<div>
+  
+  <%= button_to 'Destroy', @user, method: :delete, class: "btn btn-danger", form:{ data: { turbo_confirm: 'Are you sure?'} } %>
+
+</div>
+</div>
