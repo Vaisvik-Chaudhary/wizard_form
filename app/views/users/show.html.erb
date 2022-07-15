@@ -9,8 +9,10 @@
 </div>
 <br>
 <div>
-  
-  <%= button_to 'Destroy', @user, method: :delete, class: "btn btn-danger", form:{ data: { turbo_confirm: 'Are you sure?'} } %>
+  <%= button_to 'Destroy', @user, :method => :delete, :onclick => "return confirm('Are you sure you want to delete this post?')", class:"btn btn-danger" %>
+
+  <%#= button_to 'Destroy', @user, method: :delete, class: "btn btn-danger",data: {confirm: "Are you sure?"}  %>
+
 
 </div>
 </div>
